@@ -1,6 +1,8 @@
-# Cracking the Code: Mastering Patterns for Coding Challenges
+# Cracking the Code: Mastering Patterns for Coding Challenges (Course Series)
 
 **Status:** **REVIEW**
+
+**File:** course_series/02-cracking-the-code/00-introduction.md
 
 **Title:**
 Cracking the Code: Mastering Patterns for Coding Challenges

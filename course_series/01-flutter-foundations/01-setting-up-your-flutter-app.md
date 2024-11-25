@@ -1,5 +1,5 @@
 # 1. Setting Up Your Flutter Application 
-**Status:** **IN PROGRESS**
+**Status:** **REVIEW**
 
 **File:** course_series/01-flutter-foundations/01-setting-up-your-flutter-app.md
 
@@ -7,8 +7,7 @@
 Setting Up Your Flutter Application
 
 **Description:**
-In this first installment of the “Flutter Foundations: Essential Techniques and Features for High-Performing Flutter Apps
-” series, we’re kicking off with a hands-on guide to setting up your Flutter project using the Very Good CLI. Discover why I rely on Very Good Core for a solid foundation and learn how to configure run settings for both Android and iOS. By the end of this article, you’ll have a robust and well-structured app ready for development. Let’s get started on building something amazing!
+In this first installment of the “Flutter Foundations: Essential Techniques and Features for High-Performing Flutter Apps” series, we’re kicking off with a hands-on guide to setting up your Flutter project using the Very Good CLI. Discover why I rely on Very Good Core for a solid foundation and learn how to configure run settings for both Android and iOS. By the end of this article, you’ll have a robust and well-structured app ready for development. Let’s get started on building something amazing!
 
 
 ### Introduction
@@ -20,7 +19,6 @@ By the end of this guide, you’ll have a fully configured Flutter development e
 
 Ready to embark on this journey and set up your Flutter app with a rock-solid foundation? Let’s dive in and get started!
 
-<br>
 
 ### Creating a Flutter application with Very Good Core
 We’ll be leveraging the powerful tools and best practices developed by Very Good Ventures (VGV) to create our Flutter application. Very Good Ventures is a renowned software consultancy that specializes in Flutter development. They have contributed significantly to the Flutter ecosystem. One of their standout contributions is the Very Good CLI, which simplifies creating your Flutter application with an opinionated architecture that ensures high-quality, maintainable code.
@@ -47,51 +45,53 @@ VGV provides two frameworks: Very Good Start and Very Good Core. I wish I knew w
 
 * Continuous Integration - Lint, format, test, and enforce code coverage using GitHub Actions
 
-<br>
 
 #### 1. Install Very Good CLI
 Note here that Very Good CLI requires Dart `">=3.1.0 <4.0.0"`
-``` 
+```bash 
 dart pub global activate very_good_cli
 ```
 
 #### 2. Create apps with Very Good CLI
 ##### * Creating a flutter package
 
-``` 
+```bash 
 very_good create flutter_package <package name> --desc "<package description>"
 ```
 For projects where you need to create multiple apps, it is advisable to create a flutter package where you’ll keep shared code between the various apps.
 
 ##### * Creating a Flutter application
-``` 
+```bash 
 very_good create flutter_app <app name> --desc "<app description>" --org "<app org>"
 ```
-<br>
 
 #### 3. Add run configurations in IDE (Android Studio only) [Optional]
+- Add new run/debug configuration for Flutter.
+![See screenshot 5](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/%201.png)
 
-Enter the name of the configuration
+- Enter the name of the configuration
 Add path of the entry file
-flutter run 
---flavor development --target lib/main_development.dart
+`flutter run --flavor development --target lib/main_development.dart`
 Do the same for staging and production
-[See screenshot 7]
+![See screenshot 5](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/%202.png)
 
-You might be asked to add Dart SDK to the project
-Check the box for “Enable Dart support for the project ‘<YOUR PROJECT NAME>’” [See screenshot 5]
+- You might be asked to add Dart SDK to the project
+Check the box for “Enable Dart support for the project '[YOUR PROJECT NAME]'
+![See screenshot 5](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/5.png)
 
-Add Dart SDK path. Tip: You the use the dropdown button for suggestion on where your dart SDK in your flutter installation path is. [See screenshot 3]
+- Add Dart SDK path. Tip: You the use the dropdown button for suggestion on where your dart SDK in your flutter installation path is.
+![See screenshot 3](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/%203.png)
 
-Enable Dart support for your modules as well [See screenshot 4]
-You should have this [See screenshot 6]
-
-Now run on both an android and IOS simulator to make sure everything works fine
+- Enable Dart support for your modules as well
+![See screenshot 4](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/%204.png)
+- You should have this.
+![See screenshot 6](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/6.png)
+- Now run on both an android and IOS simulator to make sure everything works fine
 
 #### 4. Run Flutter application in IDE (VSCode)
 You'll realize your project was created with 3 build flavors. To run the desired flavor either use the launch configuration in VSCode, or use the following commands:
 
-``` 
+```bash 
 # Development
 flutter run --flavor development --target lib/main_development.dart
 
@@ -101,7 +101,6 @@ flutter run --flavor staging --target lib/main_staging.dart
 # Production
 flutter run --flavor production --target lib/main_production.dart
 ``` 
-<br>
 
 #### 5. Using the Localization setup
 This project relies on [flutter_localizations](https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html) and follows the [official internationalization guide for Flutter](https://docs.flutter.dev/development/accessibility-and-localization/internationalization).
@@ -111,7 +110,7 @@ This project relies on [flutter_localizations](https://api.flutter.dev/flutter/f
 
 1. To add a new localizable string, open the app_en.arb file at `lib/l10n/arb/app_en.arb`.
 
-```
+```dart
 {
     "@@locale": "en",
     "counterAppBarTitle": "Counter",
@@ -122,7 +121,7 @@ This project relies on [flutter_localizations](https://api.flutter.dev/flutter/f
 ```
 
 2. Then add a new key/value and description
-```
+```dart
 {
     "@@locale": "en",
     "counterAppBarTitle": "Counter",
@@ -136,7 +135,7 @@ This project relies on [flutter_localizations](https://api.flutter.dev/flutter/f
 }
 ```
 3. How to use the new string
-```
+```dart
 import 'package:very_good_core/l10n/l10n.dart';
 
 @override
@@ -148,7 +147,7 @@ Widget build(BuildContext context) {
 
 ##### Adding Supported Locales
 Update the CFBundleLocalizations array in the `Info.plist` at `ios/Runner/Info.plist` to include the new locale.
-```
+```dart
     ...
 
     <key>CFBundleLocalizations</key>
@@ -162,7 +161,7 @@ Update the CFBundleLocalizations array in the `Info.plist` at `ios/Runner/Info.p
 
 ##### Adding Translations
 1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
-```
+```dart
 ├── l10n
 │   ├── arb
 │   │   ├── app_en.arb
@@ -172,7 +171,7 @@ Update the CFBundleLocalizations array in the `Info.plist` at `ios/Runner/Info.p
 2. Add the translated strings to each .arb file
 
 In the `app_en.arb` for English translation file:
-```
+```dart
 {
     "@@locale": "en",
     "counterAppBarTitle": "Counter",
@@ -182,7 +181,7 @@ In the `app_en.arb` for English translation file:
 }
 ```
 Then in the `app_es.arb` for Spanish translation:
-```
+```dart
 {
     "@@locale": "es",
     "counterAppBarTitle": "Contador",
@@ -192,40 +191,36 @@ Then in the `app_es.arb` for Spanish translation:
 }
 ```
 
-<br>
 
 #### 6. Running Tests
 Very Good Core ships with 100% code coverage.
 
 - To run all unit and widget tests use the following command:
-```
+```bash
 flutter test --coverage --test-randomize-ordering-seed random
 ```
 
 To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
 
 - Generate Coverage Report
-```
+```bash
 genhtml coverage/lcov.info -o coverage/
 ```
 
 - Open Coverage Report
-```
+```bash
 open coverage/index.html
 ```
 
-<br>
 
 ### Conclusion
 Now that you have both apps running, you’ll realize that VGV did a good job of adding splash screens and app icons but that’s not what we want. I’m going to walk you through how to have custom app icons and splash screens.
 
 
-<br>
-<br>
 
 ### Troubleshooting and Fixing errors
 ####  Error 1: Occurs when you use underscore in app name in Very Good CLI's create flutter app command.
-```
+```bash
 Does not match the module's namespace Error
 This usually happens because your app name with an underscore is replaced with a dot as you can see in the error log below
 Launching lib/main_development.dart on sdk gphone64 arm64 in debug mode...
@@ -257,6 +252,7 @@ Execution failed for task ':app:processDevelopmentDebugMainManifest'.
 BUILD FAILED in 3m 34s
 Error: Gradle task assembleDevelopmentDebug failed with exit code 1
 ```
+![See screenshot 6](https://raw.githubusercontent.com/Code-by-CodeBeast/codebycodebeast_archive/main/course_series/01-flutter-foundations/assets/01/8.png)
 
 #### Fix:
 Change the package name in these 5 locations
