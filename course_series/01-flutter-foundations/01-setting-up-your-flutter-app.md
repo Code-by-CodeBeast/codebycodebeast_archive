@@ -1,5 +1,5 @@
 # 1. Setting Up Your Flutter Application 
-**Status:** **REVIEW**
+**Status:** **IN PROGRESS**
 
 **File:** course_series/01-flutter-foundations/01-setting-up-your-flutter-app.md
 
@@ -9,6 +9,8 @@ Setting Up Your Flutter Application
 **Description:**
 In this first installment of the “Flutter Foundations: Essential Techniques and Features for High-Performing Flutter Apps” series, we’re kicking off with a hands-on guide to setting up your Flutter project using the Very Good CLI. Discover why I rely on Very Good Core for a solid foundation and learn how to configure run settings for both Android and iOS. By the end of this article, you’ll have a robust and well-structured app ready for development. Let’s get started on building something amazing!
 
+**Tags:**
+setting up Flutter application, Flutter Foundations series, Very Good CLI, Very Good Core, Flutter project setup, Android run configurations, iOS run configurations, Flutter development environment, Flutter build flavors, Flutter localization, Very Good Ventures, multi-platform Flutter support, sound null safety Flutter, Bloc architecture Flutter, Flutter testing tools, GitHub Actions for Flutter, Flutter logging tools, linting rules for Flutter, Dart SDK setup, Flutter troubleshooting, Flutter multi-language support, internationalization in Flutter, Flutter app testing, setting up Flutter app icons, setting up Flutter splash screens, Flutter development guide, hands-on Flutter guide, Flutter app architecture, Flutter null safety explained, creating Flutter apps with Very Good CLI, high-performance Flutter apps, VGV Flutter tools, Flutter environment configuration, best practices for Flutter development.
 
 ### Introduction
 Welcome to the first part of our exciting “Flutter Foundations” series. If you’re eager to start building top-notch mobile apps with Flutter, you’ve come to the right place. In this article, we’re diving into the essential first step: setting up your Flutter application using the best practices from Very Good Ventures (VGV).
