@@ -1,6 +1,6 @@
 # State Management in React: Do you actually need Redux?
 
-*A short read...*
+_A short read..._
 
 React has revolutionized front-end development, but as applications grow more complex, state management becomes a significant challenge. Redux emerged as a popular solution, but is it always necessary? Let's explore when Redux shines and when simpler alternatives might suffice.
 
@@ -11,29 +11,33 @@ Redux is a predictable state container for JavaScript apps, primarily used with 
 ## Considerations Before Setting Up State Management
 
 1. **Application Size and Complexity**
-    - Assess your application's current size and its potential for growth.
-    - Consider the number of components that need to share state.
-    - Evaluate the complexity of state transitions in your app.
+
+   - Assess your application's current size and its potential for growth.
+   - Consider the number of components that need to share state.
+   - Evaluate the complexity of state transitions in your app.
 
 2. **Performance Requirements**
-    - Analyze how frequently your state updates.
-    - Consider the volume of data you're managing.
-    - Evaluate if you need optimized re-rendering.
+
+   - Analyze how frequently your state updates.
+   - Consider the volume of data you're managing.
+   - Evaluate if you need optimized re-rendering.
 
 3. **Team Experience and Learning Curve**
-    - Assess your team's familiarity with different state management solutions.
-    - Consider the learning curve for new team members.
-    - Evaluate the long-term maintainability of your chosen solution.
+
+   - Assess your team's familiarity with different state management solutions.
+   - Consider the learning curve for new team members.
+   - Evaluate the long-term maintainability of your chosen solution.
 
 4. **Scalability and Future-Proofing**
-    - Evaluate how easily you can refactor or extend your state management.
-    - Assess the long-term support and community around your chosen solution.
+
+   - Evaluate how easily you can refactor or extend your state management.
+   - Assess the long-term support and community around your chosen solution.
 
 5. **Debugging and Developer Tools**
 
-    - Consider the importance of time-travel debugging.
-    - Evaluate the need for state inspection tools.
-    - Assess the quality of error messages and debugging experience.
+   - Consider the importance of time-travel debugging.
+   - Evaluate the need for state inspection tools.
+   - Assess the quality of error messages and debugging experience.
 
 ## When should you use Redux?
 
@@ -70,18 +74,18 @@ You should not use Redux if an alternative better suits your app's state managem
 ## When should you choose an alternative over Redux?
 
 Check this table out first.
-| State Management Tool | Unique Features                                     | Scale                  | Ideal for                                        |
+| State Management Tool | Unique Features | Scale | Ideal for |
 |-----------------------|-----------------------------------------------------|------------------------|--------------------------------------------------|
-| useState/useReducer   | Built-in React hooks                                | Small components to medium apps | Local state management                           |
-| Context API           | Built-in React API for prop drilling prevention     | Small to medium apps   | Sharing state across components without frequent updates |
-| Redux                 | Centralized store, time-travel debugging            | Medium to large apps   | Complex state logic, large-scale applications    |
-| MobX                  | Observable state, automatic tracking of state usage | Medium to large apps   | Apps with frequent state changes                 |
-| Recoil                | Atomic model, derived state                         | Medium to large apps   | Apps with complex, interdependent state          |
-| Zustand               | Minimal API, hook-based                             | Small to medium apps   | Simple global state with minimal boilerplate     |
-| Jotai                 | Atomic model, no context providers needed           | Small to medium apps   | Fine-grained state management                    |
-| XState                | State machines and statecharts                      | Medium to large apps   | Complex UI logic and workflows                   |
-| Valtio                | Proxy-based reactivity                              | Small to medium apps   | Simple shared state with mutable updates         |
-| Easy Peasy            | Redux-based but with simplified API                 | Small to medium apps   | Redux-like state management with less boilerplate|
+| useState/useReducer | Built-in React hooks | Small components to medium apps | Local state management |
+| Context API | Built-in React API for prop drilling prevention | Small to medium apps | Sharing state across components without frequent updates |
+| Redux | Centralized store, time-travel debugging | Medium to large apps | Complex state logic, large-scale applications |
+| MobX | Observable state, automatic tracking of state usage | Medium to large apps | Apps with frequent state changes |
+| Recoil | Atomic model, derived state | Medium to large apps | Apps with complex, interdependent state |
+| Zustand | Minimal API, hook-based | Small to medium apps | Simple global state with minimal boilerplate |
+| Jotai | Atomic model, no context providers needed | Small to medium apps | Fine-grained state management |
+| XState | State machines and statecharts | Medium to large apps | Complex UI logic and workflows |
+| Valtio | Proxy-based reactivity | Small to medium apps | Simple shared state with mutable updates |
+| Easy Peasy | Redux-based but with simplified API | Small to medium apps | Redux-like state management with less boilerplate|
 
 Choosing the right state management tool for your application is crucial for ensuring optimal performance, maintainability, and development efficiency. While Redux is a powerful and popular choice for managing complex state in large-scale applications, there are several scenarios where an alternative might be more suitable:
 
