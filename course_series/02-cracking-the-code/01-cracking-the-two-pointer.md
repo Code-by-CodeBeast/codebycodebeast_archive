@@ -75,6 +75,8 @@ Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
 
+<br>
+
 > Note that: The second variation two sum II is the same problem but the array is sorted in ascending order and returns the indices of the two numbers that add up to the target.
 
 ##### Questions to ask:
@@ -129,11 +131,13 @@ This results in a nested loop which is `O(N^2)` time complexity.
 - Ask for a hint from the interviewer.
 - Find algorithm patterns that can be applied to the problem based off the runtimes.
 
-An improvement from the brute force solution which results in O(n^2) time complexity is to find a solution that reduces that to a O(N log N).
+An improvement from the brute force solution which results in `O(N^2)` time complexity is to find a solution that reduces that to a `O(N log N)`.
 
-`O(N log N) > O(N^2)`
+**Note that: `O(N log N) > O(N^2)`**
 
-Typically, an `O(N log N)` time complexity can arise from:
+---
+
+###### Typically, an `O(N log N)` time complexity can arise from:
 
 1. **Sorting Operations**
 
@@ -176,7 +180,7 @@ The two pointer technique involves:
    |                 |
    front             back
 
-   * The sum for this iteration is greater than the target, but we dont have more information on the difference between the elements of the input array. So what we can do it to move thje front pointer to the right to find a smaller sum as a test.
+   * The sum for this iteration is greater than the target, but we dont have more information on the difference between the elements of the input array. So what we can do it to move the front pointer to the right to find a smaller sum as a test.
 
    // iteration 2
    target = 9
@@ -186,7 +190,7 @@ The two pointer technique involves:
          |           |
          front       back
 
-   * Since tne array is sorted and we now know that the sum of the pointers second iteration is greater than the sum of the pointers of the first iteration, we can move the back pointer to the left to find a smaller sum.
+   * Since the array is sorted and we now know that the sum of the pointers second iteration is greater than the sum of the pointers of the first iteration, we can move the back pointer to the left to find a smaller sum.
 
    // iteration 3
    target = 9
@@ -370,9 +374,6 @@ Look for these characteristics in a problem:
    - Need O(1) space complexity
    - In-place array modifications
 
-
-
-
 #### Key Implementation Patterns
 
 1. **Initialization**
@@ -422,7 +423,6 @@ while left < right and nums[right] == nums[right + 1]:
     right -= 1
 ```
 
-
 #### Common Pitfalls to Avoid
 
 1. **Pointer Movement**
@@ -442,8 +442,6 @@ while left < right and nums[right] == nums[right + 1]:
    - Always ensure pointer movement
    - Verify loop termination conditions
    - Check boundary conditions
-
-
 
 #### Problem-Solving Framework
 
@@ -476,57 +474,60 @@ When approaching a two-pointer problem:
    - Consider boundary conditions
    - Verify termination cases
 
-
 ### Common Applications and Two Pointer Problems on LeetCode
 
 The technique is particularly effective for:
 
 1. Finding Pairs in Sorted Arrays
+
    - [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
    - [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
    - [Sum of Three Values](https://leetcode.com/problems/3sum/)
 
 2. Detecting Cycles in Linked Lists
+
    - [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
    - [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
    - [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 
 3. String Palindrome Verification
+
    - [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
    - [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)
    - [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 
-4. Three Sum Problems**
+4. Three Sum Problems\*\*
+
    - [3Sum](https://leetcode.com/problems/3sum/)
    - [3Sum Closest](https://leetcode.com/problems/3sum-closest/)
 
-5. Removing Duplicates**
+5. Removing Duplicates\*\*
+
    - [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
    - [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
    - [Remove Element](https://leetcode.com/problems/remove-element/)
 
-6. Finding Subarrays**
+6. Finding Subarrays\*\*
+
    - [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
    - [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
    - [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
 
-7. Array Partitioning**
+7. Array Partitioning\*\*
+
    - [Sort Colors](https://leetcode.com/problems/sort-colors/)
    - [Partition Labels](https://leetcode.com/problems/partition-labels/)
    - [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
 
 8. **Area/Range Problems** (New Category)
-   - [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) 
+   - [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
    - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
    - [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 
-
-
-
-
-
 ### Solving More Problems
+
 ##### [Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+
 **Problem Statement:**
 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 
@@ -556,6 +557,7 @@ n == height.length
 Let's solve this step by step using the two pointer technique.
 
 1. **Key Insights:**
+
    - Area = width × height
    - Width = right_index - left_index
    - Height = min(height[left], height[right])
@@ -572,34 +574,34 @@ Here's the solution in Python:
 def maxArea(height: List[int]) -> int:
     # Initialize two pointers at the ends
     left, right = 0, len(height) - 1
-    
+
     # Variable to store maximum area
     max_area = 0
-    
+
     # Continue until pointers meet
     while left < right:
         # Calculate width between lines
         width = right - left
-        
+
         # Calculate height (limited by shorter line)
         container_height = min(height[left], height[right])
-        
+
         # Calculate and update maximum area
         current_area = width * container_height
         max_area = max(max_area, current_area)
-        
+
         # Move the pointer at the shorter line inward
         # (because keeping the shorter line can't give us a larger area)
         if height[left] < height[right]:
             left += 1
         else:
             right -= 1
-    
+
     return max_area
 ```
 
-
 ##### [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
+
 **Problem Statement:**
 Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
 
@@ -628,6 +630,7 @@ All the integers in nums appear only once except for precisely one integer which
 Let's solve this using Fast and Slow Pointer (Floyd's Cycle Detection).
 
 1. **Key Insights:**
+
    - Array can be viewed as a linked list where nums[i] points to nums[nums[i]]
    - Due to the duplicate, there must be a cycle
    - We can use fast and slow pointers to detect the cycle
@@ -645,24 +648,25 @@ Here's the solution in Python:
 def findDuplicate(nums: List[int]) -> int:
     # Phase 1: Find the intersection point inside the cycle
     slow = fast = nums[0]
-    
+
     # Move until they meet
     while True:
         slow = nums[slow]          # Move one step
         fast = nums[nums[fast]]    # Move two steps
         if slow == fast:
             break
-    
+
     # Phase 2: Find the entrance to the cycle
     slow = nums[0]
     while slow != fast:
         slow = nums[slow]
         fast = nums[fast]
-    
+
     return slow
 ```
 
 3. **Why This Works:**
+
    - If there's a duplicate number, it creates a cycle in our "linked list"
    - When fast and slow pointers meet:
      1. Slow has traveled distance k
@@ -672,10 +676,12 @@ def findDuplicate(nums: List[int]) -> int:
      - They will meet at cycle entrance (our duplicate)
 
 4. **Time and Space Complexity:**
+
    - Time Complexity: O(n)
    - Space Complexity: O(1)
 
 5. **Example Walkthrough:**
+
 ```python
 nums = [1,3,4,2,2]
 
@@ -703,6 +709,7 @@ fast = 2->4->2
    - The solution is optimal in both time and space
 
 ##### [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+
 **Problem Statement:**
 A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward.
 
@@ -734,6 +741,7 @@ s consists only of printable ASCII characters.
 Let's solve this using the opposite ends two-pointer technique.
 
 1. **Key Insights:**
+
    - Only consider alphanumeric characters
    - Case-insensitive comparison
    - Empty string or single character is palindrome
@@ -751,37 +759,40 @@ Here's the solution in Python:
 def isPalindrome(s: str) -> bool:
     # Initialize two pointers at the ends
     left, right = 0, len(s) - 1
-    
+
     while left < right:
         # Skip non-alphanumeric characters from left
         while left < right and not s[left].isalnum():
             left += 1
-            
+
         # Skip non-alphanumeric characters from right
         while left < right and not s[right].isalnum():
             right -= 1
-            
+
         # Compare characters (case-insensitive)
         if s[left].lower() != s[right].lower():
             return False
-            
+
         left += 1
         right -= 1
-    
+
     return True
 ```
 
 3. **Why This Works:**
+
    - Skips all non-alphanumeric characters
    - Compares characters in case-insensitive manner
    - If all comparisons match, it's a palindrome
    - If any comparison fails, it's not a palindrome
 
 4. **Time and Space Complexity:**
+
    - Time Complexity: O(n) - each character is visited at most twice
    - Space Complexity: O(1) - only using two pointers
 
 5. **Example Walkthrough:**
+
 ```python
 s = "A man, a plan, a canal: Panama"
 
@@ -795,6 +806,7 @@ left = 3, right = 27  # 'n' and 'n'
 ```
 
 ##### [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+
 **Problem Statement:**
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place. The relative order of the elements should be kept the same. Return k after placing the final result in the first k slots of nums.
 
@@ -809,33 +821,34 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 ```
 
 **Simple Solution:**
+
 ```python
 def removeDuplicates(nums: List[int]) -> int:
     # Edge case: empty array
     if not nums:
         return 0
-        
+
     # Position to place next unique element
     k = 1
-    
+
     # Iterate through array starting from second element
     for i in range(1, len(nums)):
         # If current number is different from previous
         if nums[i] != nums[i-1]:
             nums[k] = nums[i]
             k += 1
-    
+
     return k
 ```
 
 **Why it works:**
+
 - k keeps track of where to place next unique element
 - Only moves forward when we find a new unique number
 - Array being sorted means duplicates are always adjacent
 
-
-
 ##### [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
+
 **Problem Statement:**
 Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 
@@ -851,16 +864,17 @@ Output: 1
 ```
 
 **Simple Solution (Sliding Window):**
+
 ```python
 def minSubArrayLen(target: int, nums: List[int]) -> int:
     min_length = float('inf')
     window_sum = 0
     start = 0
-    
+
     for end in range(len(nums)):
         # Add number to current window
         window_sum += nums[end]
-        
+
         # Shrink window while sum >= target
         while window_sum >= target:
             # Update minimum length
@@ -868,30 +882,24 @@ def minSubArrayLen(target: int, nums: List[int]) -> int:
             # Remove from window start
             window_sum -= nums[start]
             start += 1
-    
+
     return min_length if min_length != float('inf') else 0
 ```
 
 **Why it works:**
+
 - Uses sliding window technique (variation of two pointers)
 - Expands window until sum >= target
 - Shrinks window while maintaining sum >= target
 - Keeps track of minimum window size seen
 
-
-
-
-
-
-
-
-
-
 ### Conclusion
 
-Now that you have both apps running, you’ll realize that VGV did a good job of adding splash screens and app icons but that’s not what we want. I’m going to walk you through how to have custom app icons and splash screens.
+The Two Pointer Technique is a powerful algorithmic pattern that can significantly improve the efficiency of your solutions. Through this guide, we've explored:
 
-#### Useful Links
+- The fundamental concept and mechanics of the two pointer approach
+- How it improves time complexity from O(n²) to O(n) in many cases
+- Various applications including sliding window variations
+- Practical problem-solving strategies using this technique
 
-- Very Good CLI's official documentation [here](https://cli.vgv.dev/docs/overview)
-- Learn more about [Very Good Start](https://verygood.ventures/solution/very-good-start)
+By mastering the Two Pointer Technique, you'll be better equipped to tackle a wide range of coding interview problems efficiently. Remember that recognizing when to apply this pattern is just as important as knowing how to implement it. Keep practicing with different variations of problems to build your pattern recognition skills and problem-solving intuition.
