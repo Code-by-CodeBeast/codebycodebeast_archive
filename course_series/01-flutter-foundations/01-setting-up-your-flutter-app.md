@@ -1,5 +1,5 @@
 # 1. Setting Up Your Flutter Application 
-**Status:** **IN PROGRESS**
+**Status:** **COMPLETED**
 
 **File:** course_series/01-flutter-foundations/01-setting-up-your-flutter-app.md
 
