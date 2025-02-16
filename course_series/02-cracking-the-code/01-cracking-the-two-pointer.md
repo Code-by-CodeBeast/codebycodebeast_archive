@@ -26,14 +26,14 @@ To master the Two Pointer Technique, we'll follow a structured learning path:
    **Brute Force Solution:**
 
    - Use nested loops to check every possible pair
-   - Time Complexity: O(n²)
-   - Space Complexity: O(1)
+   - Time Complexity: `O(N²)`
+   - Space Complexity: `O(1)`
 
    **Two Pointer Solution:**
 
    - Use left and right pointers to efficiently navigate the sorted array
-   - Time Complexity: O(n)
-   - Space Complexity: O(1)
+   - Time Complexity: `O(N)`
+   - Space Complexity: `O(1)`
 
 3. **Pattern Recognition**
    After solving this initial problem, we'll break down:
@@ -43,7 +43,7 @@ To master the Two Pointer Technique, we'll follow a structured learning path:
    - How to adapt the pattern for different problem types
 
 4. **Practice Problems**
-   We'll solve a variety of problems that use the two pointer technique:
+   We'll solve a variety of problems that use the two-pointer technique:
    Each problem will reinforce the pattern while introducing new twists and considerations.
 
 ### Why This Approach Works
@@ -77,25 +77,25 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 <br>
 
-> Note that: The second variation two sum II is the same problem but the array is sorted in ascending order and returns the indices of the two numbers that add up to the target.
+> Note that: The second variation, two sum II, is the same problem, but the array is sorted in ascending order and returns the indices of the two numbers that add up to the target.
 
 ##### Questions to ask:
 
-- What does my input look like?
+1. What does my input look like?
   - Is the array sorted in ascending order?
   - Is the array sorted in descending order?
   - Is the array sorted in random order?
   - Can there be duplicates?
-- Will the sum cause integer overflow?
-- Can there be negative numbers?
-- What if there are no solutions?
-- What if there is only one solution?
+2. Will the sum cause integer overflow?
+3. Can there be negative numbers?
+4. What if there are no solutions?
+5. What if there is only one solution?
 
-> The question from leetcode clearly answers some of these questions with assumptions but in the case of an interview, you should ask these questions to the interviewer to make sure you are on the right track.
+> The question from leetcode answers some of these questions with assumptions, but in the case of an interview, you should ask the interviewer these questions to make sure you are on the right track.
 
 ##### Brute Force Solution
 
-In interviews, it's important to show your thought process and not just the solution. You can start off with a brute force solution and then optimize it.
+In interviews, it's important to show your thought process, not just the solution. You can start with a brute-force solution and then optimize it.
 
 The most straightforward approach is to use nested loops to check every possible pair of numbers:
 
@@ -108,7 +108,8 @@ The most straightforward approach is to use nested loops to check every possible
    |
    point
 
-   * Start with the first point and iterate through the remaining elements (in this case from 2 to 5) to find the second point that sums up to the target.
+   * Start with the first point and iterate through the remaining elements
+   (in this case from 2 to 5) to find the second point that sums up to the target.
 
    // iteration 2
                _____________
@@ -118,22 +119,25 @@ The most straightforward approach is to use nested loops to check every possible
          |
          point
 
-   * Start with the second point and iterate through the remaining elements (in this case from 3 to 5) to find the second point that sums up to the target. In the case of an array sorted in ascending order, you can ignore the thge nested iteration on the first element since it will not matter when finding the sum.
+   * Start with the second point and iterate through the remaining elements
+   (in this case from 3 to 5) to find the second point that sums up to the target.
+   In the case of an array sorted in ascending order, you can ignore the the
+   nested iteration on the first elemen since it will not matter when finding the sum.
 
    ...Keep iterating until you find the sum or the end of the array.
 ```
 
-This results in a nested loop which is `O(N^2)` time complexity.
+This results in a nested loop which is `O(N²)` time complexity.
 
-##### Finding the better solution
+##### Finding a better solution
 
-- Find insights from the brute force solution or the problem statement.
+- Find insights from the brute-force solution or the problem statement.
 - Ask for a hint from the interviewer.
 - Find algorithm patterns that can be applied to the problem based off the runtimes.
 
-An improvement from the brute force solution which results in `O(N^2)` time complexity is to find a solution that reduces that to a `O(N log N)`.
+An improvement from the brute force solution, which results in `O(N²)` time complexity, is to find a solution that reduces that to a `O(N log N)`.
 
-**Note that: `O(N log N) > O(N^2)`**
+**Note that: `O(N log N) > O(N²)`**
 
 ---
 
@@ -155,7 +159,7 @@ An improvement from the brute force solution which results in `O(N^2)` time comp
 
 **We can make use of the binary search to find the solution for this problem.**
 
-> Binary search in itself is `O(log N)` but since we are scanning through the array, it becomes `O(N log N)`. So whenever you know for sure the input array is always sorted, you can use a binary search to if the problem involves a search.
+> Binary search in itself is `O(log N)` but since we are scanning through the array, it becomes `O(N log N)`. So whenever you know for sure the input array is always sorted, you can use a binary search too if the problem involves a search.
 
 We are going to talk more about binary search in other articles.
 
@@ -180,7 +184,10 @@ The two pointer technique involves:
    |                 |
    front             back
 
-   * The sum for this iteration is greater than the target, but we dont have more information on the difference between the elements of the input array. So what we can do it to move the front pointer to the right to find a smaller sum as a test.
+   * The sum for this iteration is greater than the target, but we dont have
+   more information on the difference between the elements of the input array.
+   So what we can do it to move the front pointer to the right to find a
+   smaller sum as a test.
 
    // iteration 2
    target = 9
@@ -190,7 +197,9 @@ The two pointer technique involves:
          |           |
          front       back
 
-   * Since the array is sorted and we now know that the sum of the pointers second iteration is greater than the sum of the pointers of the first iteration, we can move the back pointer to the left to find a smaller sum.
+   * Since the array is sorted and we now know that the sum of the pointers
+   second iteration is greater than the sum of the pointers of the first
+   iteration, we can move the back pointer to the left to find a smaller sum.
 
    // iteration 3
    target = 9
@@ -207,8 +216,9 @@ The two pointer technique involves:
 
 ```python
 def two_sum(nums, target):
-    # Sort the array first - this is crucial for the two pointer approach to work
-    # Note that this step is not necessary for the two sum II problem since the array is already sorted.
+    # Sort the array first - this is crucial for the two-pointer approach to work
+    # Note that this step is not necessary for the two sum II problem since the
+    # array is already sorted.
     nums.sort()
 
     # Initialize two pointers at opposite ends of the array
@@ -216,19 +226,19 @@ def two_sum(nums, target):
 
     # Continue until pointers meet
     while left < right:
-        # Calculate current sum of elements at both pointers
+        # Calculate the current sum of elements at both pointers
         current_sum = nums[left] + nums[right]
 
         # If we found the target sum, return the indices
         if current_sum == target:
             return [left, right]
 
-        # If sum is too small, we need a larger number
+        # If the sum is too small, we need a larger number
         # Move left pointer to the right to get a bigger number
         elif current_sum < target:
             left += 1
 
-        # If sum is too large, we need a smaller number
+        # If the sum is too large, we need a smaller number
         # Move right pointer to the left to get a smaller number
         else:  # current_sum > target
             right -= 1
@@ -243,7 +253,8 @@ def two_sum(nums, target):
 ```js
 const twoSum = (nums, target) => {
   // Sort the array first - this is crucial for the two pointer approach to work.
-  // Note that this step is not necessary for the two sum II problem since the array is already sorted.
+  // Note that this step is not necessary for the two sum II problem since the
+  // array is already sorted.
   nums.sort((a, b) => a - b);
 
   // Initialize two pointers at opposite ends of the array
@@ -351,7 +362,7 @@ There are two main variations of the two pointer technique:
 
 ### Pattern Breakdown and Recognition
 
-#### When to Use Two Pointers?
+#### When to use Two Pointers?
 
 Look for these characteristics in a problem:
 
@@ -541,7 +552,8 @@ Notice that you may not slant the container.
 # Example 1
 Input: height = [1,8,6,2,5,4,8,3,7]
 Output: 49
-Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7].
+In this case, the max area of water (blue section) the container can contain is 49.
 
 # Example 2
 Input: height = [1,1]
@@ -711,7 +723,8 @@ fast = 2->4->2
 ##### [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
 **Problem Statement:**
-A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward.
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters
+and removing all non-alphanumeric characters, it reads the same forward and backward.
 
 Given a string s, return true if it is a palindrome, or false otherwise.
 
