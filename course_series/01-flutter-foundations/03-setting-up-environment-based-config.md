@@ -1,4 +1,4 @@
-# 2. Setting Up Environment-Based Configuration
+# 3. Setting Up Environment-Based Configuration
 
 **Status:** **IN PROGRESS**
 
